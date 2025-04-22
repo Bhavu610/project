@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Calculator</title>
+    <style>
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background:linear-gradient( rgb(249, 213, 219),rgb(137, 137, 227));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.calculate{
+    padding:1.5%;
+    padding-right:2%;
+        border-radius: 11px;
+        background-color: rgb(40, 37, 83);
+    box-shadow: 0 8pc 16px rgba(35, 34, 34, 0.2);
+}
+#display{
+    width: 95%;
+    height: 80px;
+    font-size: 22px;
+    margin-bottom: 11px;
+    text-align: right;
+    padding: 5px;
+    background-color: #3e457d;
+    border: 2px solid #807474;
+    border-radius: 10px;
+    color:white;
+
+    
+}
+.buttons{
+    display: grid;
+    grid-template-columns: repeat( 4,48px);
+    gap:10px;
+ 
+   
+}
+button{
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition:0.3s ease-in-out;
+    border-radius: 10px;
+}
+.num{
+    background-color:#7b68ee;
+}
+.symbol{
+    background-color: rgb(166, 166, 236);
+}
+button:hover{
+    background-color: #c0c0c0;
+}
+.operator:hover{
+    background-color: #c0c0c0;
+    
+}
+.operator{
+    background-color: #4c4343;
+    color:azure;
+}
+
+    </style>
+</head>
+<body>
+    <div class="calculate">
+        <input type="text" id="display" readonly/>
+        <div class="buttons">
+          
+            <button onclick="cleardisplay()" style="grid-column:span 5; background-color: rgb(245, 77, 110); color:white; border-radius: 50px; ">AC</button>
+            <button onclick="append('7')" class="num">7</button>
+            <button onclick="append('8')" class="num">8</button>
+            <button onclick="append('9')" class="num">9</button>
+        <button onclick="backspace()" class="symbol">⌫</button>
+            <button onclick="append('%')"class="symbol">%</button>
+            <button onclick="append('4')" class="num">4</button>
+            <button onclick="append('5')" class="num">5</button>
+            <button onclick="append('6')" class="num">6</button>
+            <button class="opeartor symbol" onclick="append('/')"class="symbol">/</button>
+            
+           
+            <button class="opeartor symbol" onclick="append('*')"class="symbol">*</button>
+            
+            
+            <button onclick="append('1')" class="num">1</button>
+            <button onclick="append('2')" class="num">2</button>
+            <button onclick="append('3')" class="num">3</button>
+            <button class="opeartor symbol" onclick="append('-')"> -</button>
+            <button class="opeartor symbol" onclick="append('+')"> +</button>
+            <button onclick="append('0')" class="num">0</button>
+            <button onclick="append('00')" class="num">00</button>
+            <button onclick="append('.')" class="num">.</button>
+            <button onclick="calculate()"class="symbol">=</button>
+            <button onclick="sqrt()"class="symbol">√</button>
+            
+        </div>
+
+    </div>
+    <script>
+        function append(value){
+            document.getElementById("display").value += value;
+        }
+        function cleardisplay(){
+            document.getElementById("display").value = "";
+        }
+        function calculate(){
+            try {
+                const equation = eval(document.getElementById("display").value);
+                 document.getElementById("display").value=equation ;
+            }catch{
+                document.getElementById("display").value="Invalid Input";
+            }     
+        }
+        function backspace(){
+            var str = document.getElementById("display").value;
+            document.getElementById("display").value = str.substring(0, str.length - 1);
+            }
+            function sqrt(){
+                var str = document.getElementById("display").value;
+                document.getElementById("display").value = Math.sqrt(str);
+                
+            }
+    </script>
+</body>
+</html>
