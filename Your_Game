@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rock Paper and Scissors Game</title>
+    <style>
+        body {
+            font-family: cursive;
+            background:linear-gradient(blue,purple);
+            display: flex;
+            height: 100vh;  
+        }
+
+        h2{
+            color: rgb(251, 251, 251);
+            position: relative;
+            font-size: 38px;
+            left:30rem;
+        }
+        .choicee p{
+            color: rgb(255, 55, 58);
+           margin-top:-8rem;
+           font-weight: 700;
+           margin-left: 9rem;
+         
+        }
+        .choicee{
+           
+            margin: 2rem;
+            margin-top: -7rem;
+            border: 2px solid black;
+            height: 20rem;
+            background-color: cornsilk;
+            border-radius: 10px;
+            width: 25rem;
+            position:absolute;
+        }
+        button{
+            margin: 1rem;
+            margin-top: 0.7rem;
+            height: 5rem;
+            width: 6rem; 
+            font-family: cursive;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        i{
+
+            color:rgb(47, 44, 103);
+            font-size: 1.9rem;
+            margin-top: 0.25rem;
+            margin-right: 0.75rem;
+            font-family: cursive;
+        }
+        p{
+            margin-top: -1.9rem;
+            margin-left: 0.75rem;
+            font-size: 1.2rem;
+            font-family: cursive;
+            font-style: italic;
+        }
+        .icon i{
+            position: relative;
+            font-size:7rem;
+            left:30rem;
+            top:5rem;
+            color: white;
+            margin-left: 1rem;
+        }
+    </style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+     />
+</head>
+<body>
+    <div class="container">
+    
+        <h2>Create <br>Rock, Paper & Scissors Game<br>With Html , CSS & Javascript</h2>
+    <div class="choicee">
+        <h5 style="margin-left: 5rem; font-size: 1rem;">Rock, Paper & Scissors Game</h5>
+         <div class="icon">
+            <i class="fa-brands fa-html5"></i>
+            <i class="fa-brands fa-css3-alt"></i>
+            <i class="fa-brands fa-js"></i>
+         </div>
+        <p>choose!</p>
+       <div class="name">
+       
+        <button onclick="play('rock')"> Rock <i class="fa-solid fa-hand-back-fist"></i></button>
+        <button onclick="play('paper')">Paper <i class="fa-solid fa-scroll"></i></button>
+        <button onclick="play('scissors')">Scissors <i class="fa-solid fa-scissors"></i></button>  
+     
+       </div>
+    <p id="result" style="margin-left: 2rem; margin-top: 0.25rem;"></p>
+
+ </div>
+    <script>
+        function play(userChoice) {
+           const choice=["rock","paper","scissors"];
+           const computerChoice = choice[Math.floor(Math.random()*3)];
+
+           let result = `Computer Choice ${computerChoice}. `;
+        
+           if(userChoice === computerChoice){
+            result += "It's a tie!😐";
+           } else if (
+         (userChoice === "rock" && computerChoice === "scissors")||
+        (userChoice === "scissors" && computerChoice === "paper")||
+        (userChoice === "paper" && computerChoice === "rock")
+        ) {
+            result += "You Win !😎";
+           } else{
+            result += "You Lose!😢";
+           }
+           document.getElementById("result").innerText = result;
+        }
+    </script>
+
+</body>
+</html>
